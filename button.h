@@ -4,7 +4,7 @@
 class Button {
 public:
     Button();
-    void onClick(int *a, int b);
+    virtual void onClick() = 0;
 };
 
 #endif // BUTTON_H
