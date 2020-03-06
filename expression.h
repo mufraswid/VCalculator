@@ -3,7 +3,7 @@
 
 class Expression {
 public:
-    Expression() {};
+    Expression();
     virtual int solve() = 0;
 };
 

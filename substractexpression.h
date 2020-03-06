@@ -1,7 +1,7 @@
 #ifndef SUBSTRACTEXPRESSION_H
 #define SUBSTRACTEXPRESSION_H
 
-#include "binaryexpression.hpp"
+#include "binaryexpression.h"
 
 class SubstractExpression : public BinaryExpression{
     public:

@@ -3,9 +3,9 @@
 
 #include "binaryexpression.h"
 
-class AddExpression : public BinaryExpression{
+class MultiplyExpression : public BinaryExpression{
     public:
-        AddExpression(Expression *x, Expression *y);
+        MultiplyExpression(Expression *x, Expression *y);
         int solve();
 };
 

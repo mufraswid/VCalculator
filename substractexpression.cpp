@@ -2,8 +2,8 @@
 #include <iostream>
 using namespace std;
 
-SubstractExpression::SubstractExpression(Expression *x, Expression *y) : BinaryExpression(Expression *x, Expression *y){}
+SubstractExpression::SubstractExpression(Expression *x, Expression *y) : BinaryExpression(x, y){}
 
-void SubstractExpression::solve(){
+int SubstractExpression::solve(){
     return this->x - this->y;
 }

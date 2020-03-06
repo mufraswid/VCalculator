@@ -2,7 +2,7 @@
 #include "button.h"
 #include "ui_mainwindow.h"
 
-long a = 0;
+float a = 0;
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
