@@ -27,12 +27,18 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     button.cpp \
-    expression.cpp
+    expression.cpp \
+    terminalexpression.cpp \
+    unaryexpression.cpp \
+    binaryexpression.cpp
 
 HEADERS += \
         mainwindow.h \ 
     button.h \
-    expression.h
+    expression.h \
+    terminalexpression.h \
+    unaryexpression.h \
+    binaryexpression.h
 
 FORMS += \
         mainwindow.ui
