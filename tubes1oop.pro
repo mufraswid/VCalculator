@@ -30,7 +30,10 @@ SOURCES += \
     expression.cpp \
     terminalexpression.cpp \
     unaryexpression.cpp \
-    binaryexpression.cpp
+    binaryexpression.cpp \
+    addexpression.cpp \
+    substractexpression.cpp \
+    multiplyexpression.cpp
 
 HEADERS += \
         mainwindow.h \ 
@@ -38,7 +41,10 @@ HEADERS += \
     expression.h \
     terminalexpression.h \
     unaryexpression.h \
-    binaryexpression.h
+    binaryexpression.h \
+    addexpression.h \
+    substractexpression.h \
+    multiplyexpression.h
 
 FORMS += \
         mainwindow.ui
