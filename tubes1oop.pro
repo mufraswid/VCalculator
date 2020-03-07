@@ -33,7 +33,8 @@ SOURCES += \
     binaryexpression.cpp \
     addexpression.cpp \
     substractexpression.cpp \
-    multiplyexpression.cpp
+    multiplyexpression.cpp \
+    negativeexpression.cpp
 
 HEADERS += \
         mainwindow.h \ 
@@ -44,7 +45,8 @@ HEADERS += \
     binaryexpression.h \
     addexpression.h \
     substractexpression.h \
-    multiplyexpression.h
+    multiplyexpression.h \
+    negativeexpression.h
 
 FORMS += \
         mainwindow.ui
