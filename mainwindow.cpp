@@ -1,8 +1,9 @@
 #include "mainwindow.h"
-#include "button.h"
+#include "numberbutton.h"
+#include "terminalexpression.h"
 #include "ui_mainwindow.h"
 
-float a = 0;
+TerminalExpression a(0);
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -18,45 +19,63 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_clicked()
 {
-    ui->label->setText(QString::number(a));
+    NumberButton button(1);
+    button.onClick(&a);
+    ui->label->setText(QString::number(a.solve()));
 }
 
 void MainWindow::on_pushButton_2_clicked()
 {
-    ui->label->setText(QString::number(a));
+    NumberButton button(2);
+    button.onClick(&a);
+    ui->label->setText(QString::number(a.solve()));
 }
 
 void MainWindow::on_pushButton_3_clicked()
 {
-    ui->label->setText(QString::number(a));
+    NumberButton button(3);
+    button.onClick(&a);
+    ui->label->setText(QString::number(a.solve()));
 }
 
 void MainWindow::on_pushButton_4_clicked()
 {
-    ui->label->setText(QString::number(a));
+    NumberButton button(4);
+    button.onClick(&a);
+    ui->label->setText(QString::number(a.solve()));
 }
 
 void MainWindow::on_pushButton_5_clicked()
 {
-    ui->label->setText(QString::number(a));
+    NumberButton button(5);
+    button.onClick(&a);
+    ui->label->setText(QString::number(a.solve()));
 }
 
 void MainWindow::on_pushButton_6_clicked()
 {
-    ui->label->setText(QString::number(a));
+    NumberButton button(6);
+    button.onClick(&a);
+    ui->label->setText(QString::number(a.solve()));
 }
 
 void MainWindow::on_pushButton_7_clicked()
 {
-    ui->label->setText(QString::number(a));
+    NumberButton button(7);
+    button.onClick(&a);
+    ui->label->setText(QString::number(a.solve()));
 }
 
 void MainWindow::on_pushButton_8_clicked()
 {
-    ui->label->setText(QString::number(a));
+    NumberButton button(8);
+    button.onClick(&a);
+    ui->label->setText(QString::number(a.solve()));
 }
 
 void MainWindow::on_pushButton_9_clicked()
 {
-    ui->label->setText(QString::number(a));
+    NumberButton button(9);
+    button.onClick(&a);
+    ui->label->setText(QString::number(a.solve()));
 }

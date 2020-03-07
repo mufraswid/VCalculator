@@ -6,10 +6,11 @@
 
 class TerminalExpression : public Expression {
 protected:
-    int x;
+    int val;
 public:
     TerminalExpression(int x);
     int solve();
+    void setValue(int a);
 };
 
 
