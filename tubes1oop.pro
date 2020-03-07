@@ -35,7 +35,8 @@ SOURCES += \
     substractexpression.cpp \
     multiplyexpression.cpp \
     negativeexpression.cpp \
-    numberbutton.cpp
+    numberbutton.cpp \
+    divisionexpression.cpp
 
 HEADERS += \
         mainwindow.h \ 
@@ -48,7 +49,8 @@ HEADERS += \
     substractexpression.h \
     multiplyexpression.h \
     negativeexpression.h \
-    numberbutton.h
+    numberbutton.h \
+    divisionexpression.h
 
 FORMS += \
         mainwindow.ui
