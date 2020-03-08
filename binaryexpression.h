@@ -5,10 +5,13 @@
 
 class BinaryExpression : public Expression {
 protected:
-    Expression* x;
-    Expression* y;
+    Expression* opr1;
+    Expression* opr2;
 public:
+    BinaryExpression();
     BinaryExpression(Expression* x, Expression* y);
+    void setOpr1(Expression* a);
+    void setOpr2(Expression* a);
     virtual int solve() = 0;
 };
 
