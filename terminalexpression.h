@@ -3,14 +3,18 @@
 
 #include "expression.h"
 
-
-class TerminalExpression : public Expression {
+template<class T>
+class TerminalExpression : public Expression<T> {
 protected:
-    int val;
+    T val;
 public:
-    TerminalExpression(int x);
-    int solve();
-    void setValue(int a);
+    TerminalExpression(T x) {
+        this->val = x;
+    }
+
+    T solve() {
+        return this->val;
+    }
 };
 
 

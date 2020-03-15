@@ -3,9 +3,15 @@
 
 #include "binaryexpression.h"
 
-class DivisionExpression : public BinaryExpression{
+template<class T>
+class DivisionExpression : public BinaryExpression<T>{
     public:
-        DivisionExpression(Expression *x, Expression *y);
-        int solve();
+        DivisionExpression(Expression<T> *x, Expression<T> *y) : BinaryExpression<T>(x, y){}
+
+        T solve(){
+            return this->opr1->solve() / this->opr2->solve();
+        }
+
 };
+
 #endif // DIVISIONEXPRESSION_H

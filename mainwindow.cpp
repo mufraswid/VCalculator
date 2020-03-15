@@ -1,11 +1,8 @@
 #include "mainwindow.h"
-#include "button.h"
 #include "terminalexpression.h"
 #include "ui_mainwindow.h"
 
-TerminalExpression a(0);
-Button* button;
-BinaryExpression* result;
+TerminalExpression<float> a(0);
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow) {
     ui->setupUi(this);

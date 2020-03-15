@@ -1,11 +1,11 @@
 #ifndef EXPRESSION_H
 #define EXPRESSION_H
 
+template<class T>
 class Expression {
 public:
-    Expression();
-    virtual int solve() = 0;
-    virtual void setValue(int a) = 0;
+    Expression(){};
+    virtual T solve() = 0;
 };
 
 #endif

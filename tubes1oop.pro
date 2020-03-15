@@ -26,7 +26,6 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    button.cpp \
     expression.cpp \
     terminalexpression.cpp \
     unaryexpression.cpp \
@@ -39,7 +38,6 @@ SOURCES += \
     rootexpression.cpp
 
 HEADERS += \
-    button.h \
     expression.h \
     terminalexpression.h \
     unaryexpression.h \

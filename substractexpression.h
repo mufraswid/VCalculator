@@ -3,10 +3,15 @@
 
 #include "binaryexpression.h"
 
-class SubstractExpression : public BinaryExpression{
+template<class T>
+class SubstractExpression : public BinaryExpression<T>{
     public:
-        SubstractExpression(Expression *x, Expression *y);
-        int solve();
+        SubstractExpression(Expression<T> *x, Expression<T> *y) : BinaryExpression<T>(x, y){}
+
+        T solve(){
+            return this->opr1->solve() - this->opr2->solve();
+        }
+
 };
 
 #endif // SUBSTRACTEXPRESSION_H

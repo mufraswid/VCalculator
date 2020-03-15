@@ -3,10 +3,14 @@
 
 #include "unaryexpression.h"
 
-class NegativeExpression : public UnaryExpression{
+template<class T>
+class NegativeExpression : public UnaryExpression<T>{
     public:
-        NegativeExpression(Expression *x);
-        int solve();
+        NegativeExpression(Expression<T> *x) : UnaryExpression<T>(x){}
+
+        T solve(){
+            return (this->x->solve())*-1;
+        }
 };
 
 

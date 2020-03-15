@@ -3,10 +3,14 @@
 
 #include "unaryexpression.h"
 
-class RootExpression : public UnaryExpression{
+template<class T>
+class RootExpression : public UnaryExpression<T>{
     public:
-        RootExpression(Expression *x);
-        int solve();
+        RootExpression(Expression<T> *x) : UnaryExpression<T>(x){}
+
+        T solve(){
+            return (T)sqrt(this->x->solve());
+        }
 };
 
 #endif // ROOTEXPRESSION_H

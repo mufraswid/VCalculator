@@ -3,12 +3,16 @@
 
 #include "expression.h"
 
-class UnaryExpression : public Expression {
+template<class T>
+class UnaryExpression : public Expression<T> {
 protected:
-    Expression* x;
+    Expression<T>* x;
 public:
-    UnaryExpression(Expression* x);
-    virtual int solve() = 0;
+    UnaryExpression(Expression<T>* x) {
+        this->x = x;
+    }
+
+    virtual T solve() = 0;
 };
 
 #endif // UNARYEXPRESSION_H

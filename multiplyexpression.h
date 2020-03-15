@@ -3,10 +3,15 @@
 
 #include "binaryexpression.h"
 
-class MultiplyExpression : public BinaryExpression{
+template<class T>
+class MultiplyExpression : public BinaryExpression<T>{
     public:
-        MultiplyExpression(Expression *x, Expression *y);
-        int solve();
+        MultiplyExpression(Expression<T> *x, Expression<T> *y) : BinaryExpression<T>(x, y){}
+
+        T solve(){
+            return this->opr1->solve() * this->opr2->solve();
+        }
+
 };
 
 #endif // MULTIPLYEXPRESSION_H
