@@ -15,6 +15,10 @@ public:
     T solve() {
         return this->val;
     }
+
+    void set(T x){
+        this->val=x;
+    }
 };
 
 
