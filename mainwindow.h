@@ -2,6 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <bits/stdc++.h>
+using namespace std;
 
 namespace Ui {
 class MainWindow;
@@ -17,7 +19,7 @@ public:
 
 private slots:
     void onClick(int); //kalo button angka yang dipencet 
-    void onClick(String); // kalo button operasi yang dipencet kecuali root sama negative
+    void onClick(string); // kalo button operasi yang dipencet kecuali root sama negative
     void onClick(); // kalo button root sama negative dipencet
 
 private:

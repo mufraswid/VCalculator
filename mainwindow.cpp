@@ -6,7 +6,8 @@
 #include "addexpression.h"
 #include "rootexpression.h"
 #include "ui_mainwindow.h"
-#include <string>
+#include <bits/stdc++.h>
+using namespace std;
 
 bool singleOperator = false;
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow) {
@@ -36,8 +37,9 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
 MainWindow::~MainWindow() {
     delete ui;
 }
+
 void MainWindow::onClick(int x){
-    QPushButton button = (QPushButton *)sender();
+    QPushButton* button = (QPushButton *)sender();
     QString value = button -> text();
     QString windowValue = ui -> window -> text();
     if(windowValue.toDouble()==0){
@@ -55,8 +57,8 @@ void MainWindow::onClick(int x){
     }
 
 }  
-void MainWindow::onClick(String a){
-    QPushButton button = (QPushButton *)sender();
+void MainWindow::onClick(string a){
+    QPushButton* button = (QPushButton *)sender();
     QString value = button -> text();
     QString windowValue = ui -> window -> text();
     double v = windowValue.toDouble();
@@ -69,32 +71,32 @@ void MainWindow::onClick(String a){
         string strval = windowValue.toStdString();
         int i;
         for (i=0; i<strval.size(); i++){
-            if(strval[i]=="+"||strval[i]=="-"||strval[i]=="/"||strval[i]=="*"){
+            if(strval[i]=='+'||strval[i]=='-'||strval[i]=='/'||strval[i]=='*'){
                 i--;
                 break;
             }
         }
         string a(strval,i);
-        string b(strval+i+2,strval.size()-i-2);
-        QString ab(a),bc(b);
-        double valA=ab.toDouble(), valB=bc.toDouble(),hasil=0;
+        string b(strval.size()+i+2,strval.size()-i-2);
+        QString ab(a), bc(b);
+        double valA=ab.toDouble(), valB=bc.toDouble(), hasil=0;
         switch (strval[i+1])
         {
-            case "+":
-                AddExpression c(new TerminalExpression<double>(valA), new TerminalExpression<double>(valB));
-                hasil=c.solve();
+            case '+':
+                AddExpression<double> c(new TerminalExpression<double>(valA), new TerminalExpression<double>(valB));
+                hasil = c.solve();
                 break;
-            case "-":
-                SubstractExpression d(new TerminalExpression<double>(valA), new TerminalExpression<double>(valB));
-                hasil=d.solve()
+            case '-':
+                SubstractExpression<double> d(new TerminalExpression<double>(valA), new TerminalExpression<double>(valB));
+                hasil = d.solve();
                 break;
-            case "/":
-                DivisionExpression e(new TerminalExpression<double>(valA), new TerminalExpression<double>(valB));
-                hasil=e.solve()
+            case '/':
+                DivisionExpression<double> e(new TerminalExpression<double>(valA), new TerminalExpression<double>(valB));
+                hasil = e.solve();
                 break;
-            case "*":
-                MultiplyExpression f(new TerminalExpression<double>(valA), new TerminalExpression<double>(valB));
-                hasil=f.solve()
+            case '*':
+                MultiplyExpression<double> f(new TerminalExpression<double>(valA), new TerminalExpression<double>(valB));
+                hasil = f.solve();
                 break;
             default:
                 break;
@@ -108,12 +110,13 @@ void MainWindow::onClick(String a){
         }
     }
 }
+
 void MainWindow::onClick(){
-    QPushButton button = (QPushButton *)sender();
+    QPushButton* button = (QPushButton *)sender();
     QString value = button -> text();
     QString windowValue = ui -> window -> text();
     double hasil=0, v = windowValue.toDouble();;
-    RootExpression c(new TerminalExpression<double>(v));
+    RootExpression<double> c(new TerminalExpression<double>(v));
     hasil =c.solve();
     ui -> window -> setText(QString::number(hasil));
 } 
