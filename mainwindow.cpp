@@ -13,10 +13,10 @@ bool singleOperator = false;
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow) {
     ui->setupUi(this);
     ui->window->setText(QString::number(0.0));\
-    QPushButton Button[10];
+    QPushButton* Button[10];
     for(int i = 0; i < 10; ++i){
         QString butName = "Button" + QString::number(i);
-        Button[i] = Calc::findChild<QPushButton *>(butName);
+        Button[i] = MainWindow::findChild<QPushButton *>(butName);
         connect(Button[i], SIGNAL(released()), this,
                 SLOT(onClick(i)));
     }
@@ -78,26 +78,31 @@ void MainWindow::onClick(string a){
         }
         string a(strval,i);
         string b(strval.size()+i+2,strval.size()-i-2);
-        QString ab(a), bc(b);
+        QString ab = QString::fromStdString(a);
+        QString bc = QString::fromStdString(b);
         double valA=ab.toDouble(), valB=bc.toDouble(), hasil=0;
         switch (strval[i+1])
         {
-            case '+':
+            case '+': {
                 AddExpression<double> c(new TerminalExpression<double>(valA), new TerminalExpression<double>(valB));
                 hasil = c.solve();
                 break;
-            case '-':
+            }
+            case '-':{
                 SubstractExpression<double> d(new TerminalExpression<double>(valA), new TerminalExpression<double>(valB));
                 hasil = d.solve();
                 break;
-            case '/':
+            }
+            case '/':{
                 DivisionExpression<double> e(new TerminalExpression<double>(valA), new TerminalExpression<double>(valB));
                 hasil = e.solve();
                 break;
-            case '*':
+            }
+            case '*':{
                 MultiplyExpression<double> f(new TerminalExpression<double>(valA), new TerminalExpression<double>(valB));
                 hasil = f.solve();
                 break;
+            }
             default:
                 break;
         }
