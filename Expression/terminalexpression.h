@@ -16,7 +16,7 @@ public:
         return this->val;
     }
 
-    void set(T x){
+    void setValue(T x){
         this->val=x;
     }
 };

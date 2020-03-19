@@ -15,14 +15,6 @@ public:
         this->opr2 = y;
     }
 
-    void setOpr1(Expression<T>* a){
-        this->opr1 = a;
-    }
-
-    void setOpr2(Expression<T>* a){
-        this->opr2 = a;
-    }
-
     virtual T solve() = 0;
 };
 
