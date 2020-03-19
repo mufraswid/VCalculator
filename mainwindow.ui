@@ -14,19 +14,6 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QLabel" name="window">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>60</y>
-      <width>331</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>YEY</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="button1">
     <property name="geometry">
      <rect>
@@ -248,6 +235,22 @@
      <string>MC</string>
     </property>
    </widget>
+   <widget class="QLineEdit" name="window">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>30</y>
+      <width>331</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -255,7 +258,7 @@
      <x>0</x>
      <y>0</y>
      <width>445</width>
-     <height>22</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuCalc">
