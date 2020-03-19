@@ -19,7 +19,7 @@ void Parser::parseEquation(){
 
     this->oper = eq[whereOp];
     string left = eq.substr(0, whereOp+1);
-    string right = eq.substr(whereOp);
+    string right = eq.substr(whereOp+1);
 
     scanOperand(left, 0);
     scanOperand(right, 1);
