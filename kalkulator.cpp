@@ -3,6 +3,8 @@
 #include "master.h"
 
 TerminalExpression<QString> input("");
+double ans;
+queue<double> memory;
 
 Kalkulator::Kalkulator(QWidget *parent) :
     QMainWindow(parent),
@@ -23,11 +25,15 @@ Kalkulator::Kalkulator(QWidget *parent) :
     connect(ui->mulbutton, SIGNAL(released()), this, SLOT(onClick()));
     connect(ui->divbutton, SIGNAL(released()), this, SLOT(onClick()));
     connect(ui->rootbutton, SIGNAL(released()), this, SLOT(onClick()));
+    connect(ui->powbutton, SIGNAL(released()), this, SLOT(onClick()));
     connect(ui->dotbutton, SIGNAL(released()), this, SLOT(onClick()));
+    connect(ui->ansbutton, SIGNAL(released()), this, SLOT(onClick()));
 
     connect(ui->eqbutton, SIGNAL(released()), this, SLOT(onClickEq()));
-
     connect(ui->acbutton, SIGNAL(released()), this, SLOT(onClickAC()));
+    connect(ui->delbutton, SIGNAL(released()), this, SLOT(onClickDel()));
+    connect(ui->mcbutton, SIGNAL(released()), this, SLOT(onClickMC()));
+    connect(ui->mrbutton, SIGNAL(released()), this, SLOT(onClickMR()));
 }
 
 Kalkulator::~Kalkulator()
@@ -38,8 +44,13 @@ Kalkulator::~Kalkulator()
 void Kalkulator::onClick(){
     QPushButton *clicked = (QPushButton *)sender();
     QString value = clicked->text();
-    QString disp = ui->display->textCursor().selectedText();
-    input.setValue(input.solve()+value);
+    if(value == "root"){
+        input.setValue(input.solve()+QString("r"));
+    } else if(value == "ans"){
+        input.setValue(input.solve()+QString::number(ans));
+    } else {
+        input.setValue(input.solve()+value);
+    }
     ui->display->setText(input.solve());
 }
 
@@ -52,7 +63,7 @@ void Kalkulator::onClickEq(){
     try{
         parser.parseEquation();
     } catch(BaseException* e){
-        ui->display->setText(QString::fromStdString(e->getErrMessage()));
+        ui->errordisplay->setText(QString::fromStdString(e->getErrMessage()));
         return;
     }
 
@@ -68,13 +79,43 @@ void Kalkulator::onClickEq(){
         result = new MultiplyExpression<double>(&leftSide, &rightSide);
     } else if(oper == '/'){
         result = new DivisionExpression<double>(&leftSide, &rightSide);
+    } else if(oper == 'r'){
+        result = new RootExpression<double>(&leftSide);
+    } else if(oper == '^'){
+        result = new PowerExpression<double>(&leftSide, &rightSide);
     }
 
-    ui->display->setText(QString::number(result->solve()));
+    ans = result->solve();
+    ui->display->setText(QString::number(ans));
     input.setValue("");
 }
 
 void Kalkulator::onClickAC(){
     input.setValue("");
     ui->display->setText(QString("0"));
+    ui->errordisplay->setText(QString(""));
+}
+
+void Kalkulator::onClickDel(){
+    string str = input.solve().toStdString();
+    if(str.length() <= 1){
+        input.setValue("");
+        ui->display->setText(QString("0"));
+    } else {
+        str = str.substr(0, str.length()-1);
+        input.setValue(QString::fromStdString(str));
+        ui->display->setText(input.solve());
+    }
+}
+
+void Kalkulator::onClickMC(){
+    memory.push(ans);
+}
+
+void Kalkulator::onClickMR(){
+    if(!memory.empty()){
+        input.setValue(input.solve()+QString::number(memory.front()));
+        ui->display->setText(input.solve());
+        memory.pop();
+    }
 }

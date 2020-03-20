@@ -2,6 +2,8 @@
 #define KALKULATOR_H
 
 #include <QMainWindow>
+#include <bits/stdc++.h>
+using namespace std;
 
 namespace Ui {
 class Kalkulator;
@@ -22,6 +24,9 @@ private slots:
     void onClick();
     void onClickEq();
     void onClickAC();
+    void onClickDel();
+    void onClickMC();
+    void onClickMR();
 };
 
 #endif // KALKULATOR_H

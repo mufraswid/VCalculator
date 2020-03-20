@@ -1,7 +1,7 @@
 #ifndef ADDEXPRESSION_H
 #define ADDEXPRESSION_H
 
-#include "binaryexpression.h"
+#include "../BinaryExpression/binaryexpression.h"
 
 template<class T>
 class AddExpression : public BinaryExpression<T>{

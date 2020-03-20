@@ -1,10 +1,11 @@
 #ifndef PARSER_H
 #define PARSER_H
 
-#include "../Exception/nooperatorexception.h"
-#include "../Exception/invalidoperatoruseexception.h"
-#include "../Exception/dotoverloadexception.h"
-#include "../Expression/terminalexpression.h"
+#include "../Exception/NoOperatorException/nooperatorexception.h"
+#include "../Exception/InvalidOperatorUseException/invalidoperatoruseexception.h"
+#include "../Exception/DotOverloadException/dotoverloadexception.h"
+#include "../Exception/RootNegativeException/rootnegativeexception.h"
+#include "../Expression/TerminalExpression/terminalexpression.h"
 #include <QString>
 #include <bits/stdc++.h>
 using namespace std;
@@ -23,6 +24,7 @@ public:
     double getLeftSide();
     double getRightSide();
     char getOperator();
+    double strToDbl(string str);
 };
 
 #endif // PARSER_H

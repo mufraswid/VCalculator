@@ -1,7 +1,7 @@
 #ifndef NOOPERATOREXCEPTION_H
 #define NOOPERATOREXCEPTION_H
 
-#include "baseexception.h"
+#include "../BaseException/baseexception.h"
 
 class NoOperatorException : public BaseException{
 public:

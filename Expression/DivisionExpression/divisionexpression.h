@@ -1,7 +1,7 @@
 #ifndef DIVISIONEXPRESSION_H
 #define DIVISIONEXPRESSION_H
 
-#include "binaryexpression.h"
+#include "../BinaryExpression/binaryexpression.h"
 
 template<class T>
 class DivisionExpression : public BinaryExpression<T>{

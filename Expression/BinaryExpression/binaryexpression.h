@@ -1,7 +1,7 @@
 #ifndef BINARYEXPRESSION_H
 #define BINARYEXPRESSION_H
 
-#include "expression.h"
+#include "../expression.h"
 
 template<class T>
 class BinaryExpression : public Expression<T> {

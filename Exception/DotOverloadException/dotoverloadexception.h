@@ -1,7 +1,7 @@
 #ifndef DOTOVERLOADEXCEPTION_H
 #define DOTOVERLOADEXCEPTION_H
 
-#include "baseexception.h"
+#include "../BaseException/baseexception.h"
 
 class DotOverloadException : public BaseException{
 private:

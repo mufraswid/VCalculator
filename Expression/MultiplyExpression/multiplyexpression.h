@@ -1,7 +1,7 @@
 #ifndef MULTIPLYEXPRESSION_H
 #define MULTIPLYEXPRESSION_H
 
-#include "binaryexpression.h"
+#include "../BinaryExpression/binaryexpression.h"
 
 template<class T>
 class MultiplyExpression : public BinaryExpression<T>{

@@ -1,13 +1,14 @@
 #ifndef MASTER_H
 #define MASTER_H
 
-#include "Expression/terminalexpression.h"
-#include "Expression/addexpression.h"
-#include "Expression/substractexpression.h"
-#include "Expression/multiplyexpression.h"
-#include "Expression/divisionexpression.h"
-#include "Expression/rootexpression.h"
-#include "Exception/baseexception.h"
+#include "Expression/TerminalExpression/terminalexpression.h"
+#include "Expression/AddExpression/addexpression.h"
+#include "Expression/SubstractExpression/substractexpression.h"
+#include "Expression/MultiplyExpression/multiplyexpression.h"
+#include "Expression/DivisionExpression/divisionexpression.h"
+#include "Expression/RootExpression/rootexpression.h"
+#include "Expression/PowerExpression/powerexpression.h"
+#include "Exception/BaseException/baseexception.h"
 #include "Parser/parser.h"
 
 #include <bits/stdc++.h>

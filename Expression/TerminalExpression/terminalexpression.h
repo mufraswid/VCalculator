@@ -1,7 +1,7 @@
 #ifndef TERMINALEXPRESSION_H
 #define TERMINALEXPRESSION_H
 
-#include "expression.h"
+#include "../expression.h"
 
 template<class T>
 class TerminalExpression : public Expression<T> {

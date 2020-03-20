@@ -1,7 +1,7 @@
 #ifndef INVALIDOPERATORUSEEXCEPTION_H
 #define INVALIDOPERATORUSEEXCEPTION_H
 
-#include "baseexception.h"
+#include "../BaseException/baseexception.h"
 
 class InvalidOperatorUseException : public BaseException{
 private:
