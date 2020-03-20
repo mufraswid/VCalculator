@@ -8,6 +8,7 @@
 #include "Expression/DivisionExpression/divisionexpression.h"
 #include "Expression/RootExpression/rootexpression.h"
 #include "Expression/PowerExpression/powerexpression.h"
+#include "Expression/ModExpression/modexpression.h"
 #include "Exception/BaseException/baseexception.h"
 #include "Parser/parser.h"
 

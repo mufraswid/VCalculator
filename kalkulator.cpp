@@ -27,6 +27,7 @@ Kalkulator::Kalkulator(QWidget *parent) :
     connect(ui->rootbutton, SIGNAL(released()), this, SLOT(onClick()));
     connect(ui->powbutton, SIGNAL(released()), this, SLOT(onClick()));
     connect(ui->dotbutton, SIGNAL(released()), this, SLOT(onClick()));
+    connect(ui->modbutton, SIGNAL(released()), this, SLOT(onClick()));
     connect(ui->ansbutton, SIGNAL(released()), this, SLOT(onClick()));
 
     connect(ui->eqbutton, SIGNAL(released()), this, SLOT(onClickEq()));
@@ -48,6 +49,8 @@ void Kalkulator::onClick(){
         input.setValue(input.solve()+QString("r"));
     } else if(value == "ans"){
         input.setValue(input.solve()+QString::number(ans));
+    } else if(value == "mod"){
+        input.setValue(input.solve()+QString("%"));
     } else {
         input.setValue(input.solve()+value);
     }
@@ -83,6 +86,8 @@ void Kalkulator::onClickEq(){
         result = new RootExpression<double>(&leftSide);
     } else if(oper == '^'){
         result = new PowerExpression<double>(&leftSide, &rightSide);
+    } else if(oper == '%'){
+        result = new ModExpression<double>(&leftSide, &rightSide);
     }
 
     ans = result->solve();

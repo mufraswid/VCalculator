@@ -41,7 +41,8 @@ SOURCES += \
     Exception/InvalidOperatorUseException/invalidoperatoruseexception.cpp \
     Exception/DotOverloadException/dotoverloadexception.cpp \
     Exception/RootNegativeException/rootnegativeexception.cpp \
-    Expression/PowerExpression/powerexpression.cpp
+    Expression/PowerExpression/powerexpression.cpp \
+    Expression/ModExpression/modexpression.cpp
 
 HEADERS += \
         kalkulator.h \
@@ -61,7 +62,8 @@ HEADERS += \
     Exception/InvalidOperatorUseException/invalidoperatoruseexception.h \
     Exception/DotOverloadException/dotoverloadexception.h \
     Exception/RootNegativeException/rootnegativeexception.h \
-    Expression/PowerExpression/powerexpression.h
+    Expression/PowerExpression/powerexpression.h \
+    Expression/ModExpression/modexpression.h
 
 FORMS += \
         kalkulator.ui
