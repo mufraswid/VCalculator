@@ -9,7 +9,7 @@ protected:
     string errMessage;
 
 public:
-    virtual void setMessage() = 0;
+    virtual void setErrMessage() = 0;
     string getErrMessage(){
         return this->errMessage;
     }

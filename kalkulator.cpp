@@ -1,11 +1,6 @@
 #include "kalkulator.h"
 #include "ui_kalkulator.h"
-#include "Expression/terminalexpression.h"
-#include "Expression/addexpression.h"
-#include "Expression/substractexpression.h"
-#include "Expression/multiplyexpression.h"
-#include "Expression/divisionexpression.h"
-#include "Parser/parser.h"
+#include "master.h"
 
 TerminalExpression<QString> input("");
 
@@ -41,7 +36,7 @@ Kalkulator::~Kalkulator()
 void Kalkulator::onClickNum(){
     QPushButton *clicked = (QPushButton *)sender();
     QString value = clicked->text();
-    QString disp = ui->display->text();
+    QString disp = ui->display->textCursor().selectedText();
     input.setValue(input.solve()+value);
     ui->display->setText(input.solve());
 }
@@ -57,7 +52,13 @@ void Kalkulator::onClickEq(){
     Parser parser(input.solve());
     Expression<double> *result;
 
-    parser.parseEquation();
+    try{
+        parser.parseEquation();
+    } catch(BaseException* e){
+        ui->display->setText(QString::fromStdString(e->getErrMessage()));
+        return;
+    }
+
     TerminalExpression<double> leftSide(parser.getLeftSide());
     TerminalExpression<double> rightSide(parser.getRightSide());
 
@@ -72,6 +73,6 @@ void Kalkulator::onClickEq(){
         result = new DivisionExpression<double>(&leftSide, &rightSide);
     }
 
-    ui->display->setText();
+    ui->display->setText(QString::number(result->solve()));
     input.setValue("");
 }

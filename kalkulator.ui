@@ -28,16 +28,6 @@
       </property>
      </widget>
     </item>
-    <item row="0" column="0" colspan="5">
-     <widget class="QLineEdit" name="display">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-     </widget>
-    </item>
     <item row="1" column="0">
      <widget class="QPushButton" name="button1">
       <property name="sizePolicy">
@@ -284,6 +274,9 @@
        <string>.</string>
       </property>
      </widget>
+    </item>
+    <item row="0" column="0" colspan="5">
+     <widget class="QTextEdit" name="display"/>
     </item>
    </layout>
   </widget>

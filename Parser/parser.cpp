@@ -13,12 +13,14 @@ void Parser::parseEquation(){
         }
     }
 
+    //throw NoOperatorException
     if(whereOp == eq.length()){
-        //throw 'tidak ada operand!'
+        NoOperatorException* e = new NoOperatorException();
+        throw e;
     }
 
     this->oper = eq[whereOp];
-    string left = eq.substr(0, whereOp+1);
+    string left = eq.substr(0, whereOp);
     string right = eq.substr(whereOp+1);
 
     scanOperand(left, 0);
@@ -29,15 +31,15 @@ void Parser::parseEquation(){
 }
 
 void Parser::scanOperand(string operand, int dext){
-    if(operand[0] == '+'){
-        //throw 'gaperlu tambah didepan!'
-    } else if(operand[0] == '*' || operand[0] == '/'){
-        //throw 'illegal operator di depan operand'
+    if(operand[0] == '+' || operand[0] == '*' || operand[0] == '/'){
+        InvalidOperatorUseException* e = new InvalidOperatorUseException(operand[0], 0, dext);
+        throw e;
     }
 
     for(int i = 1; i < operand.length(); i++){
         if(operand[i] == '+' || operand[i] == '-' || operand[i] == '*' || operand[i] == '/'){
-            //throw 'di oper ke dext, digit ke i, ada operator nich'
+            InvalidOperatorUseException* e = new InvalidOperatorUseException(operand[i], i, dext);
+            throw e;
         }
     }
 }

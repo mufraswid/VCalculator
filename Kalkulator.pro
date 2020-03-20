@@ -33,11 +33,12 @@ SOURCES += \
     Expression/binaryexpression.cpp \
     Expression/unaryexpression.cpp \
     Expression/expression.cpp \
-    Expression/negativeexpression.cpp \
     Exception/baseexception.cpp \
     Expression/terminalexpression.cpp \
     Parser/parser.cpp \
-    Expression/divisionexpression.cpp
+    Expression/divisionexpression.cpp \
+    Exception/nooperatorexception.cpp \
+    Exception/invalidoperatoruseexception.cpp
 
 HEADERS += \
         kalkulator.h \
@@ -48,11 +49,13 @@ HEADERS += \
     Expression/binaryexpression.h \
     Expression/unaryexpression.h \
     Expression/expression.h \
-    Expression/negativeexpression.h \
     Exception/baseexception.h \
     Expression/terminalexpression.h \
     Parser/parser.h \
-    Expression/divisionexpression.h
+    Expression/divisionexpression.h \
+    master.h \
+    Exception/nooperatorexception.h \
+    Exception/invalidoperatoruseexception.h
 
 FORMS += \
         kalkulator.ui

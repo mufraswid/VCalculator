@@ -1,8 +1,10 @@
 #ifndef PARSER_H
 #define PARSER_H
 
+#include "../Exception/nooperatorexception.h"
+#include "../Exception/invalidoperatoruseexception.h"
 #include "../Expression/terminalexpression.h"
-#include <QString>.
+#include <QString>
 #include <bits/stdc++.h>
 using namespace std;
 
