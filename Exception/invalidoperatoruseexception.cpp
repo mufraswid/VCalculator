@@ -8,7 +8,7 @@ InvalidOperatorUseException::InvalidOperatorUseException(char invOp, int idx, in
 }
 
 void InvalidOperatorUseException::setErrMessage(){
-    string temp = "Error penggunaan operator di operand";
+    string temp = "Error penggunaan operator di operand ";
     if(!dext){
         temp += "kiri:";
     } else {
@@ -18,12 +18,24 @@ void InvalidOperatorUseException::setErrMessage(){
     temp += to_string(idx) + "\n";
 
     if(invOp == '+' && idx == 0){
-        temp += "Operator + tidak perlu digunakan didepan operand";
+        temp += "Operator (+): Tidak perlu digunakan didepan operand";
         this->errMessage = temp;
         return;
     }
 
-    temp += "Error penggunaan operator +: Penggunaan operator salah";
+    if(invOp == '.' && idx == 0){
+        temp += "Operator (.): Tidak bisa digunakan di awal operand";
+        this->errMessage = temp;
+        return;
+    }
+
+    if(invOp == '.' && idx == -1){
+        temp += "Operator (.): Tidak bisa digunakan di akhir operand";
+        this->errMessage = temp;
+        return;
+    }
+
+    temp += "Operator (" + string(1, invOp) + "): Penggunaan operator salah";
 
     this->errMessage = temp;
 }

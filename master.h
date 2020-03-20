@@ -6,8 +6,8 @@
 #include "Expression/substractexpression.h"
 #include "Expression/multiplyexpression.h"
 #include "Expression/divisionexpression.h"
-#include "Exception/nooperatorexception.h"
-#include "Exception/invalidoperatoruseexception.h"
+#include "Expression/rootexpression.h"
+#include "Exception/baseexception.h"
 #include "Parser/parser.h"
 
 #include <bits/stdc++.h>

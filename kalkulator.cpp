@@ -15,17 +15,19 @@ Kalkulator::Kalkulator(QWidget *parent) :
     for(int i = 0; i < 10; i++){
         QString name = "button" + QString::number(i);
         numButtons[i] = Kalkulator::findChild<QPushButton *>(name);
-        connect(numButtons[i], SIGNAL(released()), this, SLOT(onClickNum()));
+        connect(numButtons[i], SIGNAL(released()), this, SLOT(onClick()));
     }
 
-    connect(ui->addbutton, SIGNAL(released()), this, SLOT(onClickOp()));
-    connect(ui->subbutton, SIGNAL(released()), this, SLOT(onClickOp()));
-    connect(ui->mulbutton, SIGNAL(released()), this, SLOT(onClickOp()));
-    connect(ui->divbutton, SIGNAL(released()), this, SLOT(onClickOp()));
-    connect(ui->rootbutton, SIGNAL(released()), this, SLOT(onClickOp()));
-    connect(ui->dotbutton, SIGNAL(released()), this, SLOT(onClickOp()));
+    connect(ui->addbutton, SIGNAL(released()), this, SLOT(onClick()));
+    connect(ui->subbutton, SIGNAL(released()), this, SLOT(onClick()));
+    connect(ui->mulbutton, SIGNAL(released()), this, SLOT(onClick()));
+    connect(ui->divbutton, SIGNAL(released()), this, SLOT(onClick()));
+    connect(ui->rootbutton, SIGNAL(released()), this, SLOT(onClick()));
+    connect(ui->dotbutton, SIGNAL(released()), this, SLOT(onClick()));
 
     connect(ui->eqbutton, SIGNAL(released()), this, SLOT(onClickEq()));
+
+    connect(ui->acbutton, SIGNAL(released()), this, SLOT(onClickAC()));
 }
 
 Kalkulator::~Kalkulator()
@@ -33,7 +35,7 @@ Kalkulator::~Kalkulator()
     delete ui;
 }
 
-void Kalkulator::onClickNum(){
+void Kalkulator::onClick(){
     QPushButton *clicked = (QPushButton *)sender();
     QString value = clicked->text();
     QString disp = ui->display->textCursor().selectedText();
@@ -41,16 +43,11 @@ void Kalkulator::onClickNum(){
     ui->display->setText(input.solve());
 }
 
-void Kalkulator::onClickOp(){
-    QPushButton *clicked = (QPushButton *)sender();
-    QString value = clicked->text();
-    input.setValue(input.solve()+value);
-    ui->display->setText(input.solve());
-}
-
 void Kalkulator::onClickEq(){
     Parser parser(input.solve());
     Expression<double> *result;
+
+    if(input.solve() == "") return; //no inputs
 
     try{
         parser.parseEquation();
@@ -75,4 +72,9 @@ void Kalkulator::onClickEq(){
 
     ui->display->setText(QString::number(result->solve()));
     input.setValue("");
+}
+
+void Kalkulator::onClickAC(){
+    input.setValue("");
+    ui->display->setText(QString("0"));
 }

@@ -3,6 +3,7 @@
 
 #include "../Exception/nooperatorexception.h"
 #include "../Exception/invalidoperatoruseexception.h"
+#include "../Exception/dotoverloadexception.h"
 #include "../Expression/terminalexpression.h"
 #include <QString>
 #include <bits/stdc++.h>

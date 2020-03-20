@@ -38,7 +38,8 @@ SOURCES += \
     Parser/parser.cpp \
     Expression/divisionexpression.cpp \
     Exception/nooperatorexception.cpp \
-    Exception/invalidoperatoruseexception.cpp
+    Exception/invalidoperatoruseexception.cpp \
+    Exception/dotoverloadexception.cpp
 
 HEADERS += \
         kalkulator.h \
@@ -55,7 +56,8 @@ HEADERS += \
     Expression/divisionexpression.h \
     master.h \
     Exception/nooperatorexception.h \
-    Exception/invalidoperatoruseexception.h
+    Exception/invalidoperatoruseexception.h \
+    Exception/dotoverloadexception.h
 
 FORMS += \
         kalkulator.ui

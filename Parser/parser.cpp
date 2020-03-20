@@ -31,7 +31,8 @@ void Parser::parseEquation(){
 }
 
 void Parser::scanOperand(string operand, int dext){
-    if(operand[0] == '+' || operand[0] == '*' || operand[0] == '/'){
+    int nDot = 0;
+    if(operand[0] == '+' || operand[0] == '*' || operand[0] == '/' || operand[0] == '.'){
         InvalidOperatorUseException* e = new InvalidOperatorUseException(operand[0], 0, dext);
         throw e;
     }
@@ -41,6 +42,20 @@ void Parser::scanOperand(string operand, int dext){
             InvalidOperatorUseException* e = new InvalidOperatorUseException(operand[i], i, dext);
             throw e;
         }
+
+        if(operand[i] == '.'){
+            if(i == operand.length()-1){
+                InvalidOperatorUseException* e = new InvalidOperatorUseException(operand[i], -1, dext);
+                throw e;
+            } else {
+                nDot++;
+            }
+        }
+    }
+
+    if(nDot > 1){
+        DotOverloadException* e = new DotOverloadException(nDot, dext);
+        throw e;
     }
 }
 

@@ -19,9 +19,9 @@ private:
     Ui::Kalkulator *ui;
 
 private slots:
-    void onClickNum();
-    void onClickOp();
+    void onClick();
     void onClickEq();
+    void onClickAC();
 };
 
 #endif // KALKULATOR_H
