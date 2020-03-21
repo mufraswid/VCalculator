@@ -1,10 +1,5 @@
 #include "kalkulator.h"
 #include "ui_kalkulator.h"
-#include "master.h"
-
-TerminalExpression<QString> input("");
-double ans;
-queue<double> memory;
 
 Kalkulator::Kalkulator(QWidget *parent) :
     QMainWindow(parent),
@@ -12,6 +7,7 @@ Kalkulator::Kalkulator(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    input.setValue("");
     ui->display->setText("0");
     QPushButton *numButtons[10];
     for(int i = 0; i < 10; i++){
@@ -24,11 +20,14 @@ Kalkulator::Kalkulator(QWidget *parent) :
     connect(ui->subbutton, SIGNAL(released()), this, SLOT(onClick()));
     connect(ui->mulbutton, SIGNAL(released()), this, SLOT(onClick()));
     connect(ui->divbutton, SIGNAL(released()), this, SLOT(onClick()));
-    connect(ui->rootbutton, SIGNAL(released()), this, SLOT(onClick()));
+    connect(ui->rootbutton, SIGNAL(released()), this, SLOT(onClickSqrt()));
     connect(ui->powbutton, SIGNAL(released()), this, SLOT(onClick()));
     connect(ui->dotbutton, SIGNAL(released()), this, SLOT(onClick()));
-    connect(ui->modbutton, SIGNAL(released()), this, SLOT(onClick()));
-    connect(ui->ansbutton, SIGNAL(released()), this, SLOT(onClick()));
+    connect(ui->modbutton, SIGNAL(released()), this, SLOT(onClickMod()));
+    connect(ui->ansbutton, SIGNAL(released()), this, SLOT(onClickAns()));
+    connect(ui->sinbutton, SIGNAL(released()), this, SLOT(onClickSin()));
+    connect(ui->cosbutton, SIGNAL(released()), this, SLOT(onClickCos()));
+    connect(ui->tanbutton, SIGNAL(released()), this, SLOT(onClickTan()));
 
     connect(ui->eqbutton, SIGNAL(released()), this, SLOT(onClickEq()));
     connect(ui->acbutton, SIGNAL(released()), this, SLOT(onClickAC()));
@@ -45,16 +44,38 @@ Kalkulator::~Kalkulator()
 void Kalkulator::onClick(){
     QPushButton *clicked = (QPushButton *)sender();
     QString value = clicked->text();
-    if(value == "root"){
-        input.setValue(input.solve()+QString("r"));
-    } else if(value == "ans"){
-        input.setValue(input.solve()+QString::number(ans));
-    } else if(value == "mod"){
-        input.setValue(input.solve()+QString("%"));
-    } else {
-        input.setValue(input.solve()+value);
-    }
-    ui->display->setText(input.solve());
+    input.setValue(input.solve()+value);
+    setDisplay();
+}
+
+void Kalkulator::onClickSqrt(){
+    input.setValue(input.solve()+QString("r"));
+    setDisplay();
+}
+
+void Kalkulator::onClickAns(){
+    input.setValue(input.solve()+QString::number(ans));
+    setDisplay();
+}
+
+void Kalkulator::onClickMod(){
+    input.setValue(input.solve()+QString("%"));
+    setDisplay();
+}
+
+void Kalkulator::onClickSin(){
+    input.setValue(input.solve()+QString("s"));
+    setDisplay();
+}
+
+void Kalkulator::onClickCos(){
+    input.setValue(input.solve()+QString("c"));
+    setDisplay();
+}
+
+void Kalkulator::onClickTan(){
+    input.setValue(input.solve()+QString("t"));
+    setDisplay();
 }
 
 void Kalkulator::onClickEq(){
@@ -66,7 +87,7 @@ void Kalkulator::onClickEq(){
     try{
         parser.parseEquation();
     } catch(BaseException* e){
-        ui->errordisplay->setText(QString::fromStdString(e->getErrMessage()));
+        ui->display->setText(QString::fromStdString(e->getErrMessage()));
         return;
     }
 
@@ -88,6 +109,12 @@ void Kalkulator::onClickEq(){
         result = new PowerExpression<double>(&leftSide, &rightSide);
     } else if(oper == '%'){
         result = new ModExpression<double>(&leftSide, &rightSide);
+    } else if(oper == 's'){
+        result = new SinExpression<double>(&leftSide);
+    } else if(oper == 'c'){
+        result = new CosExpression<double>(&leftSide);
+    } else if(oper == 't'){
+        result = new TanExpression<double>(&leftSide);
     }
 
     ans = result->solve();
@@ -98,7 +125,9 @@ void Kalkulator::onClickEq(){
 void Kalkulator::onClickAC(){
     input.setValue("");
     ui->display->setText(QString("0"));
-    ui->errordisplay->setText(QString(""));
+    for(int i = 0; i < memory.size(); i++){
+        memory.pop();
+    }
 }
 
 void Kalkulator::onClickDel(){
@@ -109,7 +138,7 @@ void Kalkulator::onClickDel(){
     } else {
         str = str.substr(0, str.length()-1);
         input.setValue(QString::fromStdString(str));
-        ui->display->setText(input.solve());
+        setDisplay();
     }
 }
 
@@ -120,7 +149,29 @@ void Kalkulator::onClickMC(){
 void Kalkulator::onClickMR(){
     if(!memory.empty()){
         input.setValue(input.solve()+QString::number(memory.front()));
-        ui->display->setText(input.solve());
+        setDisplay();
         memory.pop();
     }
+}
+
+void Kalkulator::setDisplay(){
+   string temp = "";
+   string process = input.solve().toStdString();
+   for(int i = 0; i < process.length(); i++){
+       if(process[i] == 'r'){
+           temp += "sqrt";
+       } else if(process[i] == '%'){
+           temp += "mod";
+       } else if(process[i] == 's'){
+           temp += "sin";
+       } else if(process[i] == 'c'){
+           temp += "cos";
+       } else if(process[i] == 't'){
+           temp += "tan";
+       } else {
+           temp += process[i];
+       }
+   }
+
+   ui->display->setText(QString::fromStdString(temp));
 }

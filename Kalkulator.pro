@@ -42,7 +42,10 @@ SOURCES += \
     Exception/DotOverloadException/dotoverloadexception.cpp \
     Exception/RootNegativeException/rootnegativeexception.cpp \
     Expression/PowerExpression/powerexpression.cpp \
-    Expression/ModExpression/modexpression.cpp
+    Expression/ModExpression/modexpression.cpp \
+    Expression/SinExpression/sinexpression.cpp \
+    Expression/CosExpression/cosexpression.cpp \
+    Expression/TanExpression/tanexpression.cpp
 
 HEADERS += \
         kalkulator.h \
@@ -57,13 +60,15 @@ HEADERS += \
     Expression/TerminalExpression/terminalexpression.h \
     Parser/parser.h \
     Expression/DivisionExpression/divisionexpression.h \
-    master.h \
     Exception/NoOperatorException/nooperatorexception.h \
     Exception/InvalidOperatorUseException/invalidoperatoruseexception.h \
     Exception/DotOverloadException/dotoverloadexception.h \
     Exception/RootNegativeException/rootnegativeexception.h \
     Expression/PowerExpression/powerexpression.h \
-    Expression/ModExpression/modexpression.h
+    Expression/ModExpression/modexpression.h \
+    Expression/SinExpression/sinexpression.h \
+    Expression/CosExpression/cosexpression.h \
+    Expression/TanExpression/tanexpression.h
 
 FORMS += \
         kalkulator.ui

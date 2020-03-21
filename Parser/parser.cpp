@@ -20,7 +20,7 @@ char Parser::getOperator(){
 void Parser::parseEquation(){
     string eq = this->equation.toStdString();
 
-    if(eq[0] == 'r'){
+    if(eq[0] == 'r' || eq[0] == 's' || eq[0] == 'c' || eq[0] == 't'){
         this->oper = eq[0];
         scanOperand(eq.substr(1), 0);
         this->leftSide = strToDbl(eq.substr(1));
@@ -60,7 +60,7 @@ void Parser::scanOperand(string operand, int dext){
     int nDot = 0;
 
     for(int i = 0; i < operand.length(); i++){
-        if(operand[i] == '+' || operand[i] == '-' || operand[i] == '*' || operand[i] == '/' || operand[0] == 'r' || operand[0] == '^' || operand[0] == '%'){
+        if(operand[i] == '+' || operand[i] == '-' || operand[i] == '*' || operand[i] == '/' || operand[0] == 'r' || operand[0] == '^' || operand[0] == '%' || operand[0] == 's' || operand[0] == 'c' || operand[0] == 't'){
             if(operand[i] != '-' || i != 0){
                 InvalidOperatorUseException* e = new InvalidOperatorUseException(operand[i], i, dext);
                 throw e;

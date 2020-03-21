@@ -8,6 +8,8 @@ class TerminalExpression : public Expression<T> {
 protected:
     T val;
 public:
+    TerminalExpression(){}
+
     TerminalExpression(T x) {
         this->val = x;
     }
