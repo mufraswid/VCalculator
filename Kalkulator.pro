@@ -26,26 +26,14 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         kalkulator.cpp \
-    Expression/AddExpression/addexpression.cpp \
-    Expression/SubstractExpression/substractexpression.cpp \
-    Expression/MultiplyExpression/multiplyexpression.cpp \
-    Expression/RootExpression/rootexpression.cpp \
-    Expression/BinaryExpression/binaryexpression.cpp \
-    Expression/UnaryExpression/unaryexpression.cpp \
-    Expression/expression.cpp \
-    Exception/BaseException/baseexception.cpp \
-    Expression/TerminalExpression/terminalexpression.cpp \
     Parser/parser.cpp \
-    Expression/DivisionExpression/divisionexpression.cpp \
     Exception/NoOperatorException/nooperatorexception.cpp \
     Exception/InvalidOperatorUseException/invalidoperatoruseexception.cpp \
     Exception/DotOverloadException/dotoverloadexception.cpp \
     Exception/RootNegativeException/rootnegativeexception.cpp \
-    Expression/PowerExpression/powerexpression.cpp \
-    Expression/ModExpression/modexpression.cpp \
-    Expression/SinExpression/sinexpression.cpp \
-    Expression/CosExpression/cosexpression.cpp \
-    Expression/TanExpression/tanexpression.cpp
+    Exception/ZeroDivisionException/zerodivisionexception.cpp \
+    Exception/ZeroModException/zeromodexception.cpp \
+    Exception/DecimalModException/decimalmodexception.cpp
 
 HEADERS += \
         kalkulator.h \
@@ -68,7 +56,10 @@ HEADERS += \
     Expression/ModExpression/modexpression.h \
     Expression/SinExpression/sinexpression.h \
     Expression/CosExpression/cosexpression.h \
-    Expression/TanExpression/tanexpression.h
+    Expression/TanExpression/tanexpression.h \
+    Exception/ZeroDivisionException/zerodivisionexception.h \
+    Exception/ZeroModException/zeromodexception.h \
+    Exception/DecimalModException/decimalmodexception.h
 
 FORMS += \
         kalkulator.ui

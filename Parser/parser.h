@@ -5,7 +5,10 @@
 #include "../Exception/InvalidOperatorUseException/invalidoperatoruseexception.h"
 #include "../Exception/DotOverloadException/dotoverloadexception.h"
 #include "../Exception/RootNegativeException/rootnegativeexception.h"
+#include "../Exception/ZeroDivisionException/zerodivisionexception.h"
 #include "../Expression/TerminalExpression/terminalexpression.h"
+#include "../Exception/ZeroModException/zeromodexception.h"
+#include "../Exception/DecimalModException/decimalmodexception.h"
 #include <QString>
 #include <bits/stdc++.h>
 using namespace std;
