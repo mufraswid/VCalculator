@@ -81,12 +81,12 @@ Struktur Kode dari program adalah sebagai berikut (dengan root adalah folder pro
 24 directories, 42 files
 ```
 ## Cara Compile
-1. Download (Qt)[https://www.qt.io/download] untuk membuka _project_ dari program kalkulator ini
+1. Download [Qt](https://www.qt.io/download) untuk membuka _project_ dari program kalkulator ini
 2. Program ini dibuat di Qt untuk Ubuntu 18.04, sehingga bila ada _error_ yang terjadi mungkin karena _path_ Qt yang harus disesuaikan dengan OS Anda.
 3. Buka `kalkulator.pro` di Qt, lalu Build!
 
 ## Cara Run
-1. Download (Qt)[https://www.qt.io/download] untuk membuka _project_ dari program kalkulator ini
+1. Download [Qt](https://www.qt.io/download) untuk membuka _project_ dari program kalkulator ini
 2. Program ini dibuat di Qt untuk Ubuntu 18.04, sehingga bila ada _error_ yang terjadi mungkin karena _path_ Qt yang harus disesuaikan dengan OS Anda.
 3. Buka `kalkulator.pro` di Qt, lalu Run (`ctrl + r` atau `command + r`)!
 
