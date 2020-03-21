@@ -175,3 +175,7 @@ void Kalkulator::setDisplay(){
 
    ui->display->setText(QString::fromStdString(temp));
 }
+
+void Kalkulator::setDisplay(QString a){
+    ui->display->setText(a);
+}

@@ -37,6 +37,7 @@ private:
     TerminalExpression<QString> input;
     queue<double> memory;
     void setDisplay();
+    void setDisplay(QString a);
 
 private slots:
     void onClick();
