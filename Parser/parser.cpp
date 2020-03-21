@@ -7,6 +7,13 @@
 //Konstruktor
 Parser::Parser(QString eq){
     //set atribut dengan parameter; operator di set 'n' untuk none
+    this->equation = eq.toStdString();
+    this->oper = 'n';
+}
+
+//Konstruktor Overload
+Parser::Parser(string eq){
+    //set atribut dengan parameter; operator di set 'n' untuk none
     this->equation = eq;
     this->oper = 'n';
 }
@@ -27,7 +34,7 @@ char Parser::getOperator(){
 }
 
 void Parser::parseEquation(){
-    string eq = this->equation.toStdString();   //ubah eq ke std::string
+    string eq = this->equation;  //ubah eq ke std::string
 
     if(eq[0] == 'r' || eq[0] == 's' || eq[0] == 'c' || eq[0] == 't'){       //PROSES OPERATOR UNER:
         this->oper = eq[0];                                                 //  set operator

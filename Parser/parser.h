@@ -19,7 +19,7 @@ using namespace std;
 
 class Parser {
 private:
-    QString equation;   //atribut masukan input dari pengguna
+    string equation;   //atribut masukan input dari pengguna
     double leftSide;    //atribut operand kiri yang sudah di parse
     double rightSide;   //atribut operand kanan yang sudah di parse
     char oper;          //atribut operator dari ekspresi yang sudah di parse
@@ -27,6 +27,9 @@ private:
 public:
     //Konstruktor
     Parser(QString eq);
+
+    //Konstruktor Overload
+    Parser(string eq);
 
     //parseEquation() : parsing dari atribut equation untuk mengisi atribut operand kanan dan kiri serta operator
     void parseEquation();
