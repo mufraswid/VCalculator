@@ -92,10 +92,10 @@ Struktur Kode dari program adalah sebagai berikut (dengan root adalah folder pro
 
 ## Screenshot program
 ![Kalkulator pada state awal](./assets/frontend.png) <br>
-*Gambar 1: Kalkulator pada state awal* <br>
+*Gambar 1: Kalkulator pada state awal* <br><br>
 ![Kalkulator dengan ekspresi biner](./assets/binary1.png) <br>
-*Gambar 2: Kalkulator saat menerima ekspresi biner* <br>
+*Gambar 2: Kalkulator saat menerima ekspresi biner* <br><br>
 ![Kalkulator dengan ekspresi uner](./assets/unary1.png) <br>
-*Gambar 3: Kalkulator saat menerima ekspresi uner* <br>
+*Gambar 3: Kalkulator saat menerima ekspresi uner* <br><br>
 ![Kalkulator dengan pesan kesalahan](./assets/err1.png) <br>
-*Gambar 4: Kalkulator menampilkan pesan kesalahan* <br>
+*Gambar 4: Kalkulator menampilkan pesan kesalahan*

@@ -33,7 +33,8 @@ SOURCES += \
     Exception/RootNegativeException/rootnegativeexception.cpp \
     Exception/ZeroDivisionException/zerodivisionexception.cpp \
     Exception/ZeroModException/zeromodexception.cpp \
-    Exception/DecimalModException/decimalmodexception.cpp
+    Exception/DecimalModException/decimalmodexception.cpp \
+    Exception/DecExponentNegBaseException/decexponentnegbaseexception.cpp
 
 HEADERS += \
         kalkulator.h \
@@ -59,7 +60,8 @@ HEADERS += \
     Expression/TanExpression/tanexpression.h \
     Exception/ZeroDivisionException/zerodivisionexception.h \
     Exception/ZeroModException/zeromodexception.h \
-    Exception/DecimalModException/decimalmodexception.h
+    Exception/DecimalModException/decimalmodexception.h \
+    Exception/DecExponentNegBaseException/decexponentnegbaseexception.h
 
 FORMS += \
         kalkulator.ui

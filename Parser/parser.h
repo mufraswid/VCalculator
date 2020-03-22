@@ -9,6 +9,7 @@
 #include "../Expression/TerminalExpression/terminalexpression.h"
 #include "../Exception/ZeroModException/zeromodexception.h"
 #include "../Exception/DecimalModException/decimalmodexception.h"
+#include "../Exception/DecExponentNegBaseException/decexponentnegbaseexception.h"
 #include <QString>
 #include <bits/stdc++.h>
 using namespace std;

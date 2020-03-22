@@ -88,6 +88,13 @@ void Parser::parseEquation(){
         throw e;
     }
 
+    bool isDecRight = this->rightSide - floor(this->rightSide) != 0;
+    //throw DecExponentNegBaseException : bila operator adalah exp, operand kiri negatif, operand kanan adalah desimal
+    if(this->oper == '^' && this->leftSide < 0 && isDecRight){
+        DecExponentNegBaseException* e = new DecExponentNegBaseException();
+        throw e;
+    }
+
 }
 
 void Parser::scanOperand(string operand, int dext){
