@@ -1,7 +1,7 @@
 # Vegetable Calculator (with scientific features!)
 Tugas Besar 1 Pemrograman Berorientasi Objek
 
-Kelompok 01 kelas 03:
+oleh __Kelompok 01 kelas 03__:
 - Dimas Lucky Mahendra (13518003)
 - Muchammad Ibnu Sidqi (13518072)
 - Muhammad Ravid Valiandi (13518099)
@@ -88,7 +88,14 @@ Struktur Kode dari program adalah sebagai berikut (dengan root adalah folder pro
 ## Cara Run
 1. Download [Qt](https://www.qt.io/download) untuk membuka _project_ dari program kalkulator ini
 2. Program ini dibuat di Qt untuk Ubuntu 18.04, sehingga bila ada _error_ yang terjadi mungkin karena _path_ Qt yang harus disesuaikan dengan OS Anda.
-3. Buka `kalkulator.pro` di Qt, lalu Run (`ctrl + r` atau `command + r`)!
+3. Buka `kalkulator.pro` di Qt, lalu Run dengan cara klik <kbd>ctrl</kbd> + <kbd>r</kbd> atau <kbd>command</kbd> + <kbd>r</kbd>.
 
 ## Screenshot program
-Menyusul hehe
+![Kalkulator pada state awal](./assets/frontend.png)
+*Gambar 1: Kalkulator pada state awal*
+![Kalkulator dengan ekspresi biner](./assets/binary1.png)
+*Gambar 2: Kalkulator saat menerima ekspresi biner*
+![Kalkulator dengan ekspresi uner](./assets/unary1.png)
+*Gambar 3: Kalkulator saat menerima ekspresi uner*
+![Kalkulator dengan pesan kesalahan](./assets/err1.png)
+*Gambar 4: Kalkulator menampilkan pesan kesalahan*

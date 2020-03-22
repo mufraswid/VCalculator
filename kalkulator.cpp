@@ -10,6 +10,9 @@ Kalkulator::Kalkulator(QWidget *parent) :
     //set input ke QString kosong
     input.setValue("");
 
+    //set ans ke -0XDEADBEEF, menandakan ans kosong
+    ans = -0xDEADBEEF;
+
     //display awal adalah 0
     setDisplay("0");
 
@@ -61,8 +64,10 @@ void Kalkulator::onClickSqrt(){
 }
 
 void Kalkulator::onClickAns(){
-    input.setValue(input.solve()+QString::number(ans)); //memasukkan value ans ke string input
-    setDisplay();                                       //menampilkan hasil ans ke layar
+    if(ans != -0XDEADBEEF){
+        input.setValue(input.solve()+QString::number(ans)); //memasukkan value ans ke string input
+        setDisplay();                                       //menampilkan hasil ans ke layar
+    }
 }
 
 void Kalkulator::onClickMod(){
@@ -150,6 +155,7 @@ void Kalkulator::onClickDel(){
 }
 
 void Kalkulator::onClickMC(){
+    onClickEq();
     memory.push(ans);           //push ans ke queue memory
 }
 

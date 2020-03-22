@@ -126,8 +126,9 @@ void Parser::scanOperand(string operand, int dext){
         throw e;
     }
 
+    bool isDec = strToDbl(operand) - floor(strToDbl((operand))) != 0;
     //throw DecimalModException : bila pada operasi modulo, terdapat operand yang merupakan bil. desimal
-    if(this->oper == '%' && nDot > 0){
+    if(this->oper == '%' && nDot > 0 && isDec){
         DecimalModException* e = new DecimalModException(dext);
         throw e;
     }
