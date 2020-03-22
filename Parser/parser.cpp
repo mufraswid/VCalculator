@@ -95,6 +95,11 @@ void Parser::parseEquation(){
         throw e;
     }
 
+    if(this->oper == '^' && this->leftSide == 0 && this->rightSide < 0){
+        ZeroDivisionException* e = new ZeroDivisionException();
+        throw e;
+    }
+
 }
 
 void Parser::scanOperand(string operand, int dext){
@@ -102,7 +107,7 @@ void Parser::scanOperand(string operand, int dext){
 
     //throw InvalidOperatorUseException : bila ada operator di tengah-tengah operand atau di awal operand (selain (-))
     for(int i = 0; i < operand.length(); i++){
-        if(operand[i] == '+' || operand[i] == '-' || operand[i] == '*' || operand[i] == '/' || operand[0] == 'r' || operand[0] == '^' || operand[0] == '%' || operand[0] == 's' || operand[0] == 'c' || operand[0] == 't'){
+        if(operand[i] == '+' || operand[i] == '-' || operand[i] == '*' || operand[i] == '/' || operand[0] == 'r' || operand[0] == '^' || operand[0] == '.' || operand[0] == '%' || operand[0] == 's' || operand[0] == 'c' || operand[0] == 't'){
             if(operand[i] != '-' || i != 0){
                 InvalidOperatorUseException* e = new InvalidOperatorUseException(operand[i], i, dext);
                 throw e;

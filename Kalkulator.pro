@@ -34,7 +34,7 @@ SOURCES += \
     Exception/ZeroDivisionException/zerodivisionexception.cpp \
     Exception/ZeroModException/zeromodexception.cpp \
     Exception/DecimalModException/decimalmodexception.cpp \
-    Exception/DecExponentNegBaseException/decexponentnegbaseexception.cpp
+    Exception/DecExponentNegBaseException/decexponentnegbaseexception.cpp \
 
 HEADERS += \
         kalkulator.h \
@@ -61,7 +61,7 @@ HEADERS += \
     Exception/ZeroDivisionException/zerodivisionexception.h \
     Exception/ZeroModException/zeromodexception.h \
     Exception/DecimalModException/decimalmodexception.h \
-    Exception/DecExponentNegBaseException/decexponentnegbaseexception.h
+    Exception/DecExponentNegBaseException/decexponentnegbaseexception.h \
 
 FORMS += \
         kalkulator.ui
