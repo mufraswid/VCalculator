@@ -11,12 +11,22 @@ oleh __Kelompok 01 kelas 03__:
 Struktur Kode dari program adalah sebagai berikut (dengan root adalah folder program):
 ```
 .
+├── assets
+│   ├── binary1.png
+│   ├── err1.png
+│   ├── frontend.png
+│   └── unary1.png
+├── driver_exception.cpp
 ├── driver_expression.cpp
+├── driver_parser.cpp
 ├── driver_queue.cpp
 ├── Exception
 │   ├── BaseException
 │   │   ├── baseexception.cpp
 │   │   └── baseexception.h
+│   ├── DecExponentNegBaseException
+│   │   ├── decexponentnegbaseexception.cpp
+│   │   └── decexponentnegbaseexception.h
 │   ├── DecimalModException
 │   │   ├── decimalmodexception.cpp
 │   │   └── decimalmodexception.h
@@ -75,10 +85,9 @@ Struktur Kode dari program adalah sebagai berikut (dengan root adalah folder pro
 ├── Parser
 │   ├── parser.cpp
 │   └── parser.h
-├── README.md
-└── tree.txt
+└── README.md
 
-24 directories, 42 files
+26 directories, 49 files
 ```
 ## Cara Compile
 1. Download [Qt](https://www.qt.io/download) untuk membuka _project_ dari program kalkulator ini
